@@ -1,0 +1,14 @@
+.root{
+}
+.label{
+    -fx-text-fill: #D8D8D8;
+    -fx-font-size: 11px;
+}
+.menu-bar{
+    -fx-background-color: linear-gradient(#747474, #3c3c3c);
+
+}
+.button{
+    -fx-background-color: #A1B56C;
+    -fx-text-fill: #E8E8E8;
+}

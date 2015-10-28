@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+
+<BorderPane prefHeight="495.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <VBox style="-fx-background-color: #D8D8D8;" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar stylesheets="@Style.css">
+              <menus>
+                <Menu mnemonicParsing="false" text="Archivo">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#cargarButton" text="Cargar" />
+                        <MenuItem mnemonicParsing="false" onAction="#cerrarApp" text="Salir" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ayuda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#aboutApp" text="Sobre la App" />
+                        <MenuItem mnemonicParsing="false" onAction="#creditos" text="Creditos" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="460.0" prefWidth="637.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Cargar Archivo">
+               <VBox.margin>
+                  <Insets left="10.0" right="5.0" top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Avenir Heavy" size="11.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="37.0" prefWidth="660.0" spacing="5.0">
+               <children>
+                  <TextField fx:id="txt0" editable="false" prefHeight="26.0" prefWidth="521.0" promptText="Ubicacion de archivo" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Avenir Next Medium" size="11.0" />
+                     </font></TextField>
+                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#cargarButton" stylesheets="@Style.css" text="Cargar">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Avenir Next Medium" size="11.0" />
+                     </font></Button>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="3.0" />
+               </padding></HBox>
+            <TabPane tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Información General">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <VBox prefHeight="364.0" prefWidth="600.0">
+                                 <children>
+                                    <GridPane prefHeight="145.0" prefWidth="584.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="0.0" prefWidth="132.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" maxWidth="452.0" minWidth="10.0" prefWidth="452.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Nombre del archivo:" textFill="#5e5e5e">
+                                             <font>
+                                                <Font name="Avenir Light" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Relacion de la base:" textFill="#5e5e5e" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Avenir Light" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Numero de atributos:" textFill="#5e5e5e" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Avenir Light" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Numero de registros:" textFill="#5e5e5e" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font name="Avenir Light" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txt1" editable="false" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Avenir Heavy" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="txt2" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="Avenir Book" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="txt3" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <font>
+                                                <Font name="Avenir Medium" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="txt4" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <font>
+                                                <Font name="Avenir Medium Oblique" size="12.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <Separator opacity="0.5" prefWidth="200.0">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" top="3.0" />
+                                       </VBox.margin></Separator>
+                                    <Label text="Detalle de los atributos:">
+                                       <font>
+                                          <Font name="Avenir Heavy" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets bottom="3.0" left="3.0" />
+                                       </padding>
+                                    </Label>
+                                    <TableView fx:id="tb" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(#F8F8F8, #B8B8B8);">
+                                      <columns>
+                                        <TableColumn fx:id="tb_nombre" prefWidth="258.0" text="Nombre" />
+                                        <TableColumn fx:id="tb_tipo" minWidth="0.0" prefWidth="140.0" text="Tipo" />
+                                          <TableColumn fx:id="tb_dominio" prefWidth="201.0" text="Dominio" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="tab_coment" disable="true" text="Comentarios">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="txtArea0" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="326.0" prefWidth="548.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tab_registros" disable="true" text="Registros">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="txtArea1" layoutX="59.0" layoutY="21.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="tab_cluster" disable="true" text="Informacion del cluster">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="txtArea2" layoutX="45.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+               <padding>
+                  <Insets top="7.0" />
+               </padding>
+            </TabPane>
+         </children>
+      </VBox>
+   </center>
+   <right>
+      <HBox prefHeight="460.0" prefWidth="290.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <VBox prefHeight="460.0" prefWidth="283.0">
+               <children>
+                  <ImageView fx:id="img_escudo" fitHeight="230.0" fitWidth="278.0" pickOnBounds="true" preserveRatio="true">
+                     <VBox.margin>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </ImageView>
+                  <Separator opacity="0.5" prefWidth="200.0" />
+                  <Label alignment="CENTER" prefHeight="19.0" prefWidth="283.0" text="Mineria de Datos" textAlignment="CENTER" textFill="#7cafc2">
+                     <font>
+                        <Font name="Avenir Heavy" size="18.0" />
+                     </font>
+                  </Label>
+                  <Separator opacity="0.5" prefWidth="200.0" />
+                  <Label text="Elegir Índice:">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" top="3.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Avenir Heavy" size="11.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="choice" disable="true" prefHeight="26.0" prefWidth="273.0">
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </VBox.margin>
+                  </ChoiceBox>
+                  <Button fx:id="btn_aplicar" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#aplicarIndice" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: AB4642;" text="Aplicar Índice" textAlignment="CENTER" textFill="#d8d8d8">
+                     <VBox.margin>
+                        <Insets left="92.0" top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Avenir Next Medium" size="11.0" />
+                     </font>
+                  </Button>
+
+                   <Button fx:id="btn_borrar" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#borrar" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: AB4642;" text="Borrar" textAlignment="CENTER" textFill="#d8d8d8">
+                       <VBox.margin>
+                           <Insets left="92.0" top="10.0" />
+                       </VBox.margin>
+                       <font>
+                           <Font name="Avenir Next Medium" size="11.0" />
+                       </font>
+                   </Button>
+                  <Label fx:id="lbl0" text="Resultado:" visible="false">
+                     <VBox.margin>
+                        <Insets left="18.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Avenir Next Regular" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lbl1" contentDisplay="CENTER" prefHeight="54.0" prefWidth="244.0" style="-fx-background-color: #e8e8e8;" text="Resultado:" textAlignment="CENTER" textFill="#ab4642" visible="false">
+                     <font>
+                        <Font name="Avenir Next Heavy" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="18.0" top="3.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </right>
+</BorderPane>
