@@ -71,48 +71,50 @@ public class Extractor {
                 String text;
                 implementacion.Cluster();
 
-                while ((text = lector.readLine()) != null)
+                while ((text = lector.readLine()) != null )
                 {
-                    //extraer comentarios del archivo
-                    if(text.matches("%+.*"))
-                        fArchivo.setComentarios(fLinea.formatComment(text));
-                    //extraer atributo relation
-                    if(text.matches("@(relation|RELATION) +.*"))
-                        fArchivo.setRelacion(fLinea.formatRelation(text));
+                    if((!text.trim().matches("(%|@).*")) && !(text.trim().equals(""))) {
+                        registros.add(reg, fLinea.formatData(text, ID));
+                        reg++;
+                    }else{
+                        //extraer comentarios del archivo
+                        if(text.matches("%+.*"))
+                            fArchivo.setComentarios(fLinea.formatComment(text));
+                        //extraer atributo relation
+                        if(text.matches("@(relation|RELATION) +.*"))
+                            fArchivo.setRelacion(fLinea.formatRelation(text));
 
 
-                    //Identificar si se tiene un atributo ID
-                    if(text.matches("@attribute Instance_number numeric+.*"))
-                    {
-                        ID=true;
-                        fArchivo.getCluster().idDetected(text);
-                    }else
-                    {
-                        //extraer datos de atributos categoricos
-                        if(text.matches("@(attribute|ATTRIBUTE)+.*\\{+.*\\}"))
+                        //Identificar si se tiene un atributo ID
+                        if(text.matches("@attribute Instance_number numeric+.*"))
                         {
-                            String row []=fLinea.formatAttributeCategorical(text);
-                            model.add(new Registro(row[0], row[1], row[2]));
-                            fArchivo.getCluster().setClusterCategorico(true);
-                            fArchivo.getCluster().addDominio(text, atr);
-                            atr++;
+                            ID=true;
+                            fArchivo.getCluster().idDetected(text);
                         }else
                         {
-                            //extraer datos de atributos no categoricos
-                            if(text.matches("@(attribute|ATTRIBUTE)+.*"))
+                            //extraer datos de atributos categoricos
+                            if(text.matches("@(attribute|ATTRIBUTE)+.*\\{+.*\\}"))
                             {
-                                String row []=fLinea.formatAttribute(text);
-                                fArchivo.getCluster().setClusterCategorico(false);
+                                String row []=fLinea.formatAttributeCategorical(text);
                                 model.add(new Registro(row[0], row[1], row[2]));
+                                fArchivo.getCluster().setClusterCategorico(true);
+                                fArchivo.getCluster().addDominio(text, atr);
                                 atr++;
+                            }else
+                            {
+                                //extraer datos de atributos no categoricos
+                                if(text.matches("@(attribute|ATTRIBUTE)+.*"))
+                                {
+                                    String row []=fLinea.formatAttribute(text);
+                                    fArchivo.getCluster().setClusterCategorico(false);
+                                    model.add(new Registro(row[0], row[1], row[2]));
+                                    atr++;
+                                }
                             }
                         }
-                    }
 
                     //extraer los registros
-                    if((!text.trim().matches("(%|@).*")) && !(text.trim().equals(""))){
-                        registros.add(reg, fLinea.formatData(text,ID));
-                        reg++;
+
                     }
                 }
 

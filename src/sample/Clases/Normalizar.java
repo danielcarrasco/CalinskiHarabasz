@@ -18,7 +18,6 @@ public class Normalizar {
             ArrayList<String> aux;
             aux = dominio.get(i); //aux vector dominio
 
-            System.out.println("\n-------------\n");
 
             //FOR Para registros
             for(int j=0; j<matriz.size(); j++)
@@ -30,7 +29,6 @@ public class Normalizar {
                 for(int k=1; k<aux.size(); k++)
                 {
                     if (aux2.get(Integer.parseInt(aux.get(0))).equals(aux.get(k))) {
-                        System.out.println(aux2.get(Integer.parseInt(aux.get(0))) + "->" + k);
                         aux2.remove(Integer.parseInt(aux.get(0)));
                         aux2.add(Integer.parseInt(aux.get(0)), k + "");
                         if (i > 0)
@@ -40,7 +38,6 @@ public class Normalizar {
                     } else {
                         if(k==aux.size()-1)
                             if (!isNumeric(aux2.get(Integer.parseInt(aux.get(0))))) {
-                                System.out.println(aux2.get(Integer.parseInt(aux.get(0))) + "-> null");
                                 aux2.remove(Integer.parseInt(aux.get(0)));
                                 aux2.add(Integer.parseInt(aux.get(0)), null);
 
@@ -58,10 +55,7 @@ public class Normalizar {
 
         }
 
-        System.out.println("\n-----------\nMatriz normalizada:\n");
         if(matrizDiscretizada.size()==0) {
-            System.out.println("No hay datos categoricos que normalizar");
-            System.out.println("Conviertiendo a matriz Double");
             matrizDiscretizada = (ArrayList) matriz;
         }
         doubleTranformar(matrizDiscretizada);
@@ -108,7 +102,6 @@ public class Normalizar {
             normalizado.add(vector);
 
         }
-        System.out.println(normalizado);
 
         return normalizado;
     }
