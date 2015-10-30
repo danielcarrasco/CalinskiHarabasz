@@ -5,9 +5,6 @@ package sample.algoritmoCalinskiHarabaz;
  */
 public class formarGrupos {
     public double[][] formarGrupos(double [][] cGrupos,int [][] grupos, Double [][] objetos){
-        //System.out.println(grupos.length);
-        System.out.println("");
-        System.out.println("Formando Grupos");
         for(int i = 0; i < grupos.length; i++){//Numero de grupos
             int [] g = new int [grupos[i].length];
             for(int j = 0; j < grupos[i].length; j++){//Numero de elementos de cada grupo
@@ -15,13 +12,9 @@ public class formarGrupos {
             }
             double [] cGrup;
             cGrup = matrizGrupo(g, objetos);
-            System.out.println("Centro de grupo");
             for(int k =0; k <objetos[0].length;k++){
                 cGrupos[i][k] = cGrup[k];
-                System.out.print(cGrupos[i][k]+" ");
             }
-            System.out.println("");
-            System.out.println("");
         }
         return cGrupos;
     }
@@ -31,7 +24,6 @@ public class formarGrupos {
 
         int filas = g.length;
         int columnas = objetos[0].length;
-        System.out.println("Filas " + filas + " Columnas" + columnas);
         double [][] matrizGrupo = new double[filas][columnas];
 
         for(int i = 0; i < filas; i++){
@@ -40,20 +32,11 @@ public class formarGrupos {
                     matrizGrupo[i][j] = objetos[g[i]][j];
                 }
             }
-            //System.out.print(g[i]+ " ");
         }
 
-        for(int i = 0; i < filas; i++){
-            //System.out.println( + " ");
-            for(int j = 0; j < columnas; j++){
-                System.out.print(matrizGrupo[i][j] + " ");
-            }
-            System.out.println("");
-        }
+
 
         double[] mediaCentro = centros(matrizGrupo);
-        //for(int i =0; i < mediaCentro.length; i++)
-        //  System.out.print("Centro: " + mediaCentro[i] + " ");
 
         return mediaCentro;
 
@@ -64,19 +47,14 @@ public class formarGrupos {
     public double[] centros(double[][] objetos){
         int numeroObjetos = objetos.length;
         int numeroAtributos = objetos[0].length;
-        //System.out.println("Objetos: " + numeroObjetos + " Atributos: " + numeroAtributos);
-        double mediaAritmetica = 0;
         double mediaCentro[] = new double[numeroAtributos];
 
         for (int k=0; k<numeroAtributos; k++)
             for (int i=0; i<numeroObjetos; i++)
-                /*if(objetos[i][k]!=null) {
-                    mediaCentro[k] = mediaCentro[k] + objetos[i][k];
-                }*/
                 mediaCentro[k] = mediaCentro[k] + objetos[i][k];
+
         for(int i = 0;i < mediaCentro.length; i++){
             mediaCentro[i] = (mediaCentro[i]/numeroObjetos);
-            //System.out.println("Media Atributo " + (i+1) + " : " + mediaCentro[i]);
         }
         return mediaCentro;
     }

@@ -7,7 +7,6 @@ package sample.algoritmoCalinskiHarabaz;
 public class distanciaEuclidiana {
     public double[] distanciaEuclidianas(double [] distanciasE,int [][] grupos, Double [][] objetos,double [][] cGrupos){
 
-        System.out.println("Suma de la distancia de cada elemento con su centro cada grupo");
         for(int i = 0; i < grupos.length; i++){//Numero de grupos
             int [] g = new int [grupos[i].length];
             for(int j = 0; j < grupos[i].length; j++){//Numero de elementos de cada grupo
@@ -34,20 +33,17 @@ public class distanciaEuclidiana {
     //saca distancia de un objeto a centro
     public double distanciaEOC(Double [] objeto, double [] cGrupo){
 
-        //double r2 =0;
         double [] r = new double [objeto.length];
         for (int i = 0; i < objeto.length; i++){
             if(objeto[i]!=null) {
                 r[i] = Math.pow((objeto[i] - cGrupo[i]), 2);
             }
-            //r[i] = (double) Math.pow((objeto[i]-cGrupo[i]), 2);
         }
         double r2 =0;
         for (int i = 0; i < r.length; i++){
             r2 = r2 + r[i];
         }
         return Math.sqrt(r2);
-        //return (double) Math.sqrt(r2);
     }
 
     //saca distancia de un conjunto de objetos con centro de su grupo

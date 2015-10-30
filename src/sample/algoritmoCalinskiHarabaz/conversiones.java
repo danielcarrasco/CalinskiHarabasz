@@ -13,9 +13,7 @@ public class conversiones {
         Iterator it = objetos.iterator();
         int numeroObjetos = 0;
         Double [][] matrizObjetos;
-        ArrayList<String> aux = new ArrayList();
-        //System.out.println(objetos.get(0));
-        aux = (ArrayList<String>) objetos.get(numeroObjetos);
+        ArrayList<String> aux;
         matrizObjetos = new Double[objetos.size()][];
 
 
@@ -37,15 +35,6 @@ public class conversiones {
             numeroObjetos++;
         }
 
-        System.out.println("Conversion ArrayList Objetos a matriz float");
-
-        for (int i = 0; i < matrizObjetos.length; i++) {
-            for (int j = 0; j < matrizObjetos[i].length ; j++) {
-                System.out.print(matrizObjetos[i][j]+" ");
-            }
-            System.out.println();
-        }
-
         return matrizObjetos;
     }
 
@@ -55,15 +44,10 @@ public class conversiones {
         Iterator it = grupos.iterator();
         int numeroGrupos = 0;
         int [][] matrizGrupos;
-        ArrayList<String> aux= new ArrayList();
+        ArrayList<String> aux;
         matrizGrupos=new int[grupos.size()][];
 
-
-        //System.out.println("Numero de Grupos: "+grupos.size());
-
-        //System.out.println("Arraylist de String");
         while(it.hasNext()){
-            //System.out.println(it.next());
             it.next();
             aux = (ArrayList<String>) grupos.get(numeroGrupos);
             matrizGrupos[numeroGrupos]=new int[aux.size()];
@@ -72,15 +56,7 @@ public class conversiones {
             }
             numeroGrupos++;
         }
-
-        System.out.println("Conversion ArrayList de grupos a matriz int");
-
-        for (int i = 0; i < matrizGrupos.length; i++) {
-            for (int j = 0; j < matrizGrupos[i].length ; j++) {
-                System.out.print(matrizGrupos[i][j]+" ");
-            }
-            System.out.println();
-        }
+        
         return matrizGrupos;
     }
 }
