@@ -4,6 +4,7 @@ package sample;
  * Created by JJCD on 30/09/15.
  */
 
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
@@ -21,8 +22,11 @@ import javafx.scene.image.Image;
 import sample.Ayuda.creditos;
 import sample.Ayuda.sobreApp;
 import sample.Clases.*;
+import sample.ClasesLigeras.ClusterLigero;
+import sample.ClasesLigeras.ExtractorLigero;
 import sample.algoritmoCalinskiHarabaz.CalcularAlgoritmoCH;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.ResourceBundle;
@@ -177,4 +181,16 @@ public class Controller extends Window implements Initializable{
 
     }
 
+    public void ligero()
+    {
+        ExtractorLigero extractor=new ExtractorLigero();
+        try
+        {
+            ClusterLigero ligero = extractor.extraer(this);
+            ligero.mostrarCluster();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
