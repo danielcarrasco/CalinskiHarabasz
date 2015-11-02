@@ -40,7 +40,7 @@ public class ExtractorLigero
 
     private void dimencionar() throws IOException
     {
-        System.out.println("Dimencionando archivo, puede tardar un rato...");
+
         lector=new BufferedReader(new FileReader(archivo));
         String text;
 
@@ -65,7 +65,6 @@ public class ExtractorLigero
             }
         }
 
-        System.out.println("... Dimenciones extraidas\n\tObjetos: "+nObjteos+"\n\tAtributos(total): "+nAtributos+"\n\tAtributos(categoricos): "+nCategoricos);
     }
 
     public ClusterLigero extraer(Controller parent) throws IOException
@@ -128,15 +127,11 @@ public class ExtractorLigero
         cluster.setTotalAtributos(nAtributos);
         cluster.setTotalObjetos(nObjteos);
         cluster.setDominioClase(fLinea.getDominioClase());
+        cluster.setRuta(archivo.getPath());
+        cluster.setNombre(archivo.getName());
 
         return cluster;
     }
 
-    public int getnAtributos() {
-        return nAtributos;
-    }
 
-    public int getnCategoricos() {
-        return nCategoricos;
-    }
 }

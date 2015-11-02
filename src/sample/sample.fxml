@@ -247,15 +247,6 @@
                        </font>
                    </Button>
 
-                   <Button fx:id="btn_ligero" alignment="CENTER" contentDisplay="CENTER" disable="false" mnemonicParsing="false" onAction="#ligero" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: AB4642;" text="Modo Ligero" textAlignment="CENTER" textFill="#d8d8d8">
-                       <VBox.margin>
-                           <Insets left="92.0" top="10.0" />
-                       </VBox.margin>
-                       <font>
-                           <Font name="Avenir Next Medium" size="11.0" />
-                       </font>
-                   </Button>
-
                   <Label fx:id="lbl0" text="Resultado:" visible="false">
                      <VBox.margin>
                         <Insets left="18.0" top="5.0" />

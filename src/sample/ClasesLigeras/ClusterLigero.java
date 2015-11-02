@@ -14,6 +14,8 @@ public class ClusterLigero
     private boolean     idFlag;
     private int         totalAtributos;
     private int         totalObjetos;
+    private String Ruta;
+    private String Nombre;
 
     public ClusterLigero(int nObjetos,int nAtributos)
     {
@@ -109,5 +111,23 @@ public class ClusterLigero
         return totalObjetos;
     }
 
+    public String[][] getRelacionObjetoClase() {
+        return RelacionObjetoClase;
+    }
 
+    public void setRuta(String ruta) {
+        Ruta = ruta;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public String getRuta() {
+        return Ruta;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
 }

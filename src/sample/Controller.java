@@ -4,7 +4,6 @@ package sample;
  * Created by JJCD on 30/09/15.
  */
 
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
@@ -24,13 +23,11 @@ import sample.Ayuda.sobreApp;
 import sample.Clases.*;
 import sample.ClasesLigeras.ClusterLigero;
 import sample.ClasesLigeras.ExtractorLigero;
-import sample.ClasesLigeras.FormatLineLigero;
+import sample.ClasesLigeras.NormalizarLigero;
 import sample.algoritmoCalinskiHarabaz.CalcularAlgoritmoCH;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 
 
@@ -99,28 +96,35 @@ public class Controller extends Window implements Initializable{
         tb_dominio.setCellValueFactory(new PropertyValueFactory<>("dominio"));
 
 
-        Extractor archivo=new Extractor();
+        ClusterLigero ligero=null;
 
+        ExtractorLigero extractor=new ExtractorLigero();
+        try
+        {
+            ligero = extractor.extraer(this);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 
-        formato=archivo.exatraer(this);
+        formato2=ligero;
 
-        if(formato!=null){
+        if(formato2!=null){
             txtArea2.setText("");
 
-            txt0.setText(formato.getRuta());
-            txt1.setText(formato.getNombre());
-            txt2.setText(formato.getRelacion());
-            txt3.setText(""+formato.getCluster().getNumTotalAtributos());
-            txt4.setText(""+formato.getCluster().getNumRegistros());
-            tb.setItems(formato.getAtributos());
-            txtArea0.setText(formato.getComentarios());
-
-            //Iterator it=formato.getCluster().getRegistros().iterator();
-            //while(it.hasNext())
-                //txtArea1.appendText(it.next() + "\n");
+            txt0.setText(formato2.getRuta());
+            txt1.setText(formato2.getNombre());
+            //txt2.setText(formato2.getRelacion());
+            txt3.setText("" + formato2.getTotalObjetos());
+            txt4.setText(""+formato2.getTotalAtributos());
+            //tb.setItems(formato.getAtributos());
+            //txtArea0.setText(formato.getComentarios());
 
 
-            txtArea2.setText(formato.getCluster().getClusterInfo());
+
+            //txtArea2.setText(formato.getCluster().getClusterInfo());
+
+
 
             //Activar boton Aplicar indice
             btn_aplicar.setDisable(false);
@@ -142,16 +146,6 @@ public class Controller extends Window implements Initializable{
 
     public void aplicarIndice(){
 
-//        Normalizar registrosN = new Normalizar();
-//
-//        CalcularAlgoritmoCH resultadoFinal=new CalcularAlgoritmoCH();
-//        Double resultado;
-//
-//        resultado = resultadoFinal.calcularAlgoritmo(registrosN.Discretizar(formato.getCluster().getRegistros(),formato.getCluster().getRelacionDominioAtributo()), formato.getCluster().getRelacionRegistroCluster(), val);
-//        val = 1;
-//        lbl1.setText(resultado+"");
-//        lbl0.setVisible(true);
-//        lbl1.setVisible(true);
 
         //LIGERO
         Double [][] normalizado;
@@ -161,9 +155,9 @@ public class Controller extends Window implements Initializable{
         CalcularAlgoritmoCH resultadoFinal=new CalcularAlgoritmoCH();
         Double resultado;
 
-        //resultado = resultadoFinal.calcularAlgoritmo(normalizado, formato.getCluster().getRelacionRegistroCluster());
+        resultado = resultadoFinal.calcularAlgoritmo(normalizado, formato2.getRelacionObjetoClase());
         val = 1;
-        //lbl1.setText(resultado+"");
+        lbl1.setText(resultado+"");
         lbl0.setVisible(true);
         lbl1.setVisible(true);
 
@@ -201,61 +195,5 @@ public class Controller extends Window implements Initializable{
 
     }
 
-    public void ligero()
-    {
 
-        controllerC();
-
-        tb_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        tb_tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
-        tb_dominio.setCellValueFactory(new PropertyValueFactory<>("dominio"));
-
-
-        ClusterLigero ligero=null;
-
-        ExtractorLigero extractor=new ExtractorLigero();
-        try
-        {
-            ligero = extractor.extraer(this);
-            ligero.mostrarCluster();
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        formato2=ligero;
-
-        if(formato2!=null){
-            txtArea2.setText("");
-
-            //txt0.setText(formato2.getRuta());
-            //txt1.setText(formato2.getNombre());
-            //txt2.setText(formato2.getRelacion());
-            txt3.setText(""+formato2.getTotalObjetos());
-            txt4.setText(""+formato2.getTotalAtributos());
-            //tb.setItems(formato.getAtributos());
-            //txtArea0.setText(formato.getComentarios());
-
-
-
-            //txtArea2.setText(formato.getCluster().getClusterInfo());
-
-
-
-            //Activar boton Aplicar indice
-            btn_aplicar.setDisable(false);
-            btn_borrar.setDisable(false);
-
-            //Activar choiceBox
-            choice.setDisable(false);
-            choice.getItems().add("Índice Calinski-Harabasz");
-            choice.setValue("Índice Calinski-Harabasz");
-            //Activar pestañas
-            tab_registros.setDisable(false);
-            tab_coment.setDisable(false);
-            tab_cluster.setDisable(false);
-
-
-        }
-    }
 }
