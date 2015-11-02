@@ -1,5 +1,8 @@
 package sample.algoritmoCalinskiHarabaz;
 
+
+import java.util.ArrayList;
+
 /**
  * Created by Villegas on 03/10/2015.
  */
@@ -47,7 +50,7 @@ public class CalcularAlgoritmoCH {
         return (aNumerador/aDenominador);
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Double [][] numeros = {{1.0,1.0,0.0},
                 {2.0, 1.0, 1.0},
                 {1.0,2.0,0.0},
@@ -62,5 +65,6 @@ public class CalcularAlgoritmoCH {
         int [][] grupos = {{0,1,2,3,5,8,10},{4,6,7,9}};
         CalcularAlgoritmoCH cach = new CalcularAlgoritmoCH();
         System.out.println(cach.calcularAlgoritmo(numeros,grupos));
-    }
+    }*/
+
 }
