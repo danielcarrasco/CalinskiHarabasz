@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class CalcularAlgoritmoCH {
 
-    public double calcularAlgoritmo(Double[][] objetos, int[][] grupos){
+    public double calcularAlgoritmo(Double[][] objetos, String[][] gruposS){
 
         //Creacion de objetos
         //conversiones conv = new conversiones();
@@ -16,12 +16,14 @@ public class CalcularAlgoritmoCH {
         formarGrupos fg = new formarGrupos();
         distanciaEuclidiana de = new distanciaEuclidiana();
         algoritmosCH ach = new algoritmosCH();
-        //quitaJuanito qJ =new quitaJuanito();
+        quitaJuanito qJ =new quitaJuanito();
         //Creacion Variables
         int nObjetos;
         int nAtributos;
         int nGrupos;
         double [] cGlobal;
+        int [][] grupos;
+        grupos = qJ.getOutJuanito(gruposS);
         //-----Objetos-------------------
         nObjetos = objetos.length;
         nAtributos = objetos[0].length;
@@ -34,7 +36,7 @@ public class CalcularAlgoritmoCH {
         nGrupos = grupos.length;
         double [][] cGrupos = new double[nGrupos][nAtributos];
         //--Formar Grupos
-        fg.formarGrupos(cGrupos,grupos, objetos);
+        cGrupos=fg.formarGrupos(cGrupos,grupos, objetos);
         //------Distancia euclidiana
         double[] distanciasE = new double[nGrupos];
         distanciasE = de.distanciaEuclidianas(distanciasE,grupos,objetos,cGrupos);
@@ -50,7 +52,7 @@ public class CalcularAlgoritmoCH {
         return (aNumerador/aDenominador);
     }
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         Double [][] numeros = {{1.0,1.0,0.0},
                 {2.0, 1.0, 1.0},
                 {1.0,2.0,0.0},
@@ -62,9 +64,9 @@ public class CalcularAlgoritmoCH {
                 {2.0,4.0,1.0},
                 {3.0,4.0,4.0},
                 {2.0,5.0,2.0}};
-        int [][] grupos = {{0,1,2,3,5,8,10},{4,6,7,9}};
+        String [][] grupos = {{"A","0","1","2","3","5","8","10"},{"B","4","6","7","9"}};
         CalcularAlgoritmoCH cach = new CalcularAlgoritmoCH();
         System.out.println(cach.calcularAlgoritmo(numeros,grupos));
-    }*/
+    }
 
 }
