@@ -24,10 +24,12 @@ import sample.Ayuda.sobreApp;
 import sample.Clases.*;
 import sample.ClasesLigeras.ClusterLigero;
 import sample.ClasesLigeras.ExtractorLigero;
+import sample.ClasesLigeras.FormatLineLigero;
 import sample.algoritmoCalinskiHarabaz.CalcularAlgoritmoCH;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
@@ -56,6 +58,7 @@ public class Controller extends Window implements Initializable{
     public Label lbl0;
     public Label lbl1;
     public FormatFile formato;
+    public ClusterLigero formato2;
     public Integer val;
 
 
@@ -112,9 +115,10 @@ public class Controller extends Window implements Initializable{
             tb.setItems(formato.getAtributos());
             txtArea0.setText(formato.getComentarios());
 
-            Iterator it=formato.getCluster().getRegistros().iterator();
-            while(it.hasNext())
-                txtArea1.appendText(it.next() + "\n");
+            //Iterator it=formato.getCluster().getRegistros().iterator();
+            //while(it.hasNext())
+                //txtArea1.appendText(it.next() + "\n");
+
 
             txtArea2.setText(formato.getCluster().getClusterInfo());
 
@@ -138,7 +142,19 @@ public class Controller extends Window implements Initializable{
 
     public void aplicarIndice(){
 
-        Normalizar registrosN= new Normalizar();
+//        Normalizar registrosN = new Normalizar();
+//
+//        CalcularAlgoritmoCH resultadoFinal=new CalcularAlgoritmoCH();
+//        Double resultado;
+//
+//        resultado = resultadoFinal.calcularAlgoritmo(registrosN.Discretizar(formato.getCluster().getRegistros(),formato.getCluster().getRelacionDominioAtributo()), formato.getCluster().getRelacionRegistroCluster(), val);
+//        val = 1;
+//        lbl1.setText(resultado+"");
+//        lbl0.setVisible(true);
+//        lbl1.setVisible(true);
+
+        //LIGERO
+        Normalizar registrosN = new Normalizar();
 
         CalcularAlgoritmoCH resultadoFinal=new CalcularAlgoritmoCH();
         Double resultado;
@@ -148,6 +164,8 @@ public class Controller extends Window implements Initializable{
         lbl1.setText(resultado+"");
         lbl0.setVisible(true);
         lbl1.setVisible(true);
+
+
     }
     public void borrar(){
         BorrarRegistro rrt = new BorrarRegistro();
@@ -183,14 +201,65 @@ public class Controller extends Window implements Initializable{
 
     public void ligero()
     {
+
+        controllerC();
+
+        tb_nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        tb_tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        tb_dominio.setCellValueFactory(new PropertyValueFactory<>("dominio"));
+
+
+        ClusterLigero ligero=null;
+
         ExtractorLigero extractor=new ExtractorLigero();
         try
         {
-            ClusterLigero ligero = extractor.extraer(this);
+            ligero = extractor.extraer(this);
             ligero.mostrarCluster();
         } catch (IOException e)
         {
             e.printStackTrace();
+        }
+
+        formato2=ligero;
+
+        if(formato2!=null){
+            txtArea2.setText("");
+
+            //txt0.setText(formato2.getRuta());
+            //txt1.setText(formato2.getNombre());
+            //txt2.setText(formato2.getRelacion());
+            txt3.setText(""+formato2.getTotalObjetos());
+            txt4.setText(""+formato2.getTotalAtributos());
+            //tb.setItems(formato.getAtributos());
+            //txtArea0.setText(formato.getComentarios());
+
+
+
+            String [][] objetos=formato2.getObjetos();
+            for (int i=0; i<objetos.length;i++)
+            {
+                txtArea1.appendText(Arrays.toString(objetos[i]) + "\n");
+            }
+
+            //txtArea2.setText(formato.getCluster().getClusterInfo());
+
+
+
+            /*//Activar boton Aplicar indice
+            btn_aplicar.setDisable(false);
+            btn_borrar.setDisable(false);*/
+
+            //Activar choiceBox
+            choice.setDisable(false);
+            choice.getItems().add("Índice Calinski-Harabasz");
+            choice.setValue("Índice Calinski-Harabasz");
+            //Activar pestañas
+            tab_registros.setDisable(false);
+            tab_coment.setDisable(false);
+            tab_cluster.setDisable(false);
+
+
         }
     }
 }

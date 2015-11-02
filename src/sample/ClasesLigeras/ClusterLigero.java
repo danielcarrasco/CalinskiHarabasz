@@ -100,4 +100,14 @@ public class ClusterLigero
             System.out.println(Arrays.toString(objetos[i]));
         }
     }
+
+    public int getTotalAtributos() {
+        return totalAtributos;
+    }
+
+    public int getTotalObjetos() {
+        return totalObjetos;
+    }
+
+
 }
