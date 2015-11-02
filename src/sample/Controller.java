@@ -154,12 +154,14 @@ public class Controller extends Window implements Initializable{
 //        lbl1.setVisible(true);
 
         //LIGERO
-        Normalizar registrosN = new Normalizar();
+        Double [][] normalizado;
+        NormalizarLigero registrosN = new NormalizarLigero();
+        normalizado = registrosN.Discretizar(formato2.getObjetos(), formato2.getRelacionAtributoDominio(), formato2.getTotalObjetos(), formato2.getTotalAtributos());
 
         CalcularAlgoritmoCH resultadoFinal=new CalcularAlgoritmoCH();
         Double resultado;
 
-        //resultado = resultadoFinal.calcularAlgoritmo(registrosN.Discretizar(formato.getCluster().getRegistros(),formato.getCluster().getRelacionDominioAtributo()), formato.getCluster().getRelacionRegistroCluster(), val);
+        //resultado = resultadoFinal.calcularAlgoritmo(normalizado, formato.getCluster().getRelacionRegistroCluster());
         val = 1;
         //lbl1.setText(resultado+"");
         lbl0.setVisible(true);
@@ -236,19 +238,13 @@ public class Controller extends Window implements Initializable{
 
 
 
-            String [][] objetos=formato2.getObjetos();
-            for (int i=0; i<objetos.length;i++)
-            {
-                txtArea1.appendText(Arrays.toString(objetos[i]) + "\n");
-            }
-
             //txtArea2.setText(formato.getCluster().getClusterInfo());
 
 
 
-            /*//Activar boton Aplicar indice
+            //Activar boton Aplicar indice
             btn_aplicar.setDisable(false);
-            btn_borrar.setDisable(false);*/
+            btn_borrar.setDisable(false);
 
             //Activar choiceBox
             choice.setDisable(false);

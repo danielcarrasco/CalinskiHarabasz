@@ -131,4 +131,12 @@ public class ExtractorLigero
 
         return cluster;
     }
+
+    public int getnAtributos() {
+        return nAtributos;
+    }
+
+    public int getnCategoricos() {
+        return nCategoricos;
+    }
 }
