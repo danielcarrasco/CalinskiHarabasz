@@ -56,7 +56,7 @@ public class ExtractorLigero
                 if (text.startsWith("@attribute") || text.startsWith("@ATTRIBUTE"))
                 {
                     nAtributos++;
-                    if(text.endsWith("}"))
+                    if(text.matches("@(attribute|ATTRIBUTE)+.*\\{+.*\\}+.*"))
                     {
                         nCategoricos++;
                         clase=text;
@@ -102,7 +102,7 @@ public class ExtractorLigero
                 }
                 else
                 {
-                    if(text.matches("@(attribute|ATTRIBUTE)+.*\\{+.*\\}"))
+                    if(text.matches("@(attribute|ATTRIBUTE)+.*\\{+.*\\}+.*"))
                     {
                         dominios[contadorDominios]=fLinea.formatDominio(text,contadorAtributos);
                         contadorAtributos++;

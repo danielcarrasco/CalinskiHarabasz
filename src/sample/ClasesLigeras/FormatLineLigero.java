@@ -79,7 +79,10 @@ public class FormatLineLigero
     {
         String[] dominioRaw=line.split("\\{");
         String aux=dominioRaw[1];
-        aux=aux.substring(0,aux.length()-1);
+        dominioRaw=aux.split("\\}");
+        aux=dominioRaw[0];
+        dominioRaw=aux.split(",");
+        //aux=aux.substring(0,aux.length()-1);
         dominioRaw=aux.split("\\,");
 
         String[] dominioListo=new String[dominioRaw.length+1];
@@ -89,6 +92,8 @@ public class FormatLineLigero
         {
             dominioListo[i+1]=dominioRaw[i].trim();
         }
+
+        //System.out.println(Arrays.toString(dominioListo));
 
         return dominioListo;
     }
