@@ -159,9 +159,9 @@ public class Controller extends Window implements Initializable{
         CalcularAlgoritmoCH resultadoFinal=new CalcularAlgoritmoCH();
         Double resultado;
 
-        resultado = resultadoFinal.calcularAlgoritmo(registrosN.Discretizar(formato.getCluster().getRegistros(),formato.getCluster().getRelacionDominioAtributo()), formato.getCluster().getRelacionRegistroCluster(), val);
+        //resultado = resultadoFinal.calcularAlgoritmo(registrosN.Discretizar(formato.getCluster().getRegistros(),formato.getCluster().getRelacionDominioAtributo()), formato.getCluster().getRelacionRegistroCluster(), val);
         val = 1;
-        lbl1.setText(resultado+"");
+        //lbl1.setText(resultado+"");
         lbl0.setVisible(true);
         lbl1.setVisible(true);
 
