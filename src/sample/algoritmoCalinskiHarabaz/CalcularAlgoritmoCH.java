@@ -52,21 +52,5 @@ public class CalcularAlgoritmoCH {
         return (aNumerador/aDenominador);
     }
 
-    public static void main(String[] args) {
-        Double [][] numeros = {{1.0,1.0,0.0},
-                {2.0, 1.0, 1.0},
-                {1.0,2.0,0.0},
-                {2.0,2.0,1.0},
-                {4.0,1.0,3.0},
-                {4.0,2.0,1.0},
-                {4.0,3.0,3.0},
-                {4.0,4.0,5.0},
-                {2.0,4.0,1.0},
-                {3.0,4.0,4.0},
-                {2.0,5.0,2.0}};
-        String [][] grupos = {{"A","0","1","2","3","5","8","10"},{"B","4","6","7","9"}};
-        CalcularAlgoritmoCH cach = new CalcularAlgoritmoCH();
-        System.out.println(cach.calcularAlgoritmo(numeros,grupos));
-    }
 
 }
