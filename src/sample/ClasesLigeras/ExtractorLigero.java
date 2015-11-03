@@ -49,7 +49,10 @@ public class ExtractorLigero
             text=text.trim();
             if((!text.matches("(%|@).*")) && !(text.equals("")))
             {
-                nObjteos++;
+                if(!text.endsWith("?"))
+                {
+                    nObjteos++;
+                }
             }
             else
             {
@@ -60,6 +63,11 @@ public class ExtractorLigero
                     {
                         nCategoricos++;
                         clase=text;
+                        claseCategorica=true;
+                    }
+                    else
+                    {
+                        claseCategorica=false;
                     }
                 }
             }
@@ -91,8 +99,12 @@ public class ExtractorLigero
             text=text.trim();
             if((!text.matches("(%|@).*")) && !(text.equals("")))
             {
-                objetos[contadorObjetos]=fLinea.formatObjeto(text,IDFlag,contadorObjetos);
-                contadorObjetos++;
+                String[] aux=fLinea.formatObjeto(text,IDFlag,contadorObjetos);
+                if (aux!=null)
+                {
+                    objetos[contadorObjetos]=aux;
+                    contadorObjetos++;
+                }
             }
             else
             {
@@ -107,14 +119,12 @@ public class ExtractorLigero
                         dominios[contadorDominios]=fLinea.formatDominio(text,contadorAtributos);
                         contadorAtributos++;
                         contadorDominios++;
-                        claseCategorica=true;
                     }
                     else
                     {
                         if(text.matches("@(attribute|ATTRIBUTE)+.*"))
                         {
                             contadorAtributos++;
-                            claseCategorica=false;
                         }
                     }
                 }

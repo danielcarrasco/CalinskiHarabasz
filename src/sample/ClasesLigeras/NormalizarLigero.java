@@ -11,9 +11,9 @@ public class NormalizarLigero {
     }
 
 
-    public Double[][] Discretizar(String[][] matriz, String[][] dominio, int nObjetos, int nAtributos){
+    public Double[][] Discretizar(String[][] matriz, String[][] dominio, int nObjetos, int nAtributos, boolean IDflag){
 
-        String[][] matrizDiscretizada = new String[nObjetos][nAtributos-1];
+        String[][] matrizDiscretizada = new String[nObjetos][nAtributos-(IDflag?2:1)];
 
         if(dominio.length!=1) {
             //FOR para los dominios
@@ -57,7 +57,7 @@ public class NormalizarLigero {
 
 
 
-        return  doubleTransformar(matrizDiscretizada, nObjetos, nAtributos-1);
+        return  doubleTransformar(matrizDiscretizada, nObjetos, nAtributos-(IDflag?2:1));
     }
 
 
