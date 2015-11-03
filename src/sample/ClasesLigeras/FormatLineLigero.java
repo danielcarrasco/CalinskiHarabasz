@@ -64,12 +64,19 @@ public class FormatLineLigero
         }
 
         auxClase=objetoRaw[objetoRaw.length-1];
-        for(int i=0; i<dominioClase.length; i++)
+        if(!auxClase.equals("?"))
         {
-            if(dominioClase[i].startsWith(auxClase))
+            for (int i = 0; i < dominioClase.length; i++)
             {
-                dominioClase[i]+=","+num;
+                if (dominioClase[i].startsWith(auxClase))
+                {
+                    dominioClase[i] += "," + num;
+                }
             }
+        }
+        else
+        {
+            objetoListo=null;
         }
 
         return objetoListo;
@@ -81,7 +88,7 @@ public class FormatLineLigero
         String aux=dominioRaw[1];
         dominioRaw=aux.split("\\}");
         aux=dominioRaw[0];
-        dominioRaw=aux.split(",");
+        //dominioRaw=aux.split(",");
         //aux=aux.substring(0,aux.length()-1);
         dominioRaw=aux.split("\\,");
 

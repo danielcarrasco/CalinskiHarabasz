@@ -102,6 +102,7 @@ public class Controller extends Window implements Initializable{
         try
         {
             ligero = extractor.extraer(this);
+            //ligero.mostrarCluster();
         } catch (IOException e)
         {
             e.printStackTrace();
@@ -150,7 +151,9 @@ public class Controller extends Window implements Initializable{
         //LIGERO
         Double [][] normalizado;
         NormalizarLigero registrosN = new NormalizarLigero();
-        normalizado = registrosN.Discretizar(formato2.getObjetos(), formato2.getRelacionAtributoDominio(), formato2.getTotalObjetos(), formato2.getTotalAtributos());
+        normalizado = registrosN.Discretizar(formato2.getObjetos(), formato2.getRelacionAtributoDominio(), formato2.getTotalObjetos(), formato2.getTotalAtributos(),formato2.isIdFlag());
+
+        //registrosN.imprimirNormalizado(normalizado);
 
         CalcularAlgoritmoCH resultadoFinal=new CalcularAlgoritmoCH();
         Double resultado;

@@ -17,6 +17,11 @@ public class ClusterLigero
     private String Ruta;
     private String Nombre;
 
+    public boolean isIdFlag()
+    {
+        return idFlag;
+    }
+
     public ClusterLigero(int nObjetos,int nAtributos)
     {
         this.objetos = new String[nObjetos][nAtributos];
