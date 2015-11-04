@@ -68,8 +68,7 @@ public class FormatLineLigero
         {
             for (int i = 0; i < dominioClase.length; i++)
             {
-                String[]auxDominio=dominioClase[i].split(",");
-                if (auxDominio[0].equals(auxClase))
+                if (dominioClase[i].startsWith(auxClase+",")||dominioClase[i].equals(auxClase))
                 {
                     dominioClase[i] += "," + num;
                 }

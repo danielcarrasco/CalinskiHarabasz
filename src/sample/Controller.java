@@ -106,7 +106,7 @@ public class Controller extends Window implements Initializable{
         try
         {
             ligero = extractor.extraer(this);
-            //ligero.mostrarCluster();
+            ligero.mostrarCluster();
         } catch (IOException e)
         {
             e.printStackTrace();
