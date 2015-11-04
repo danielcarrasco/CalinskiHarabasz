@@ -106,7 +106,7 @@ public class Controller extends Window implements Initializable{
         try
         {
             ligero = extractor.extraer(this);
-            ligero.mostrarCluster();
+            //ligero.mostrarCluster();
         } catch (IOException e)
         {
             e.printStackTrace();
@@ -120,8 +120,8 @@ public class Controller extends Window implements Initializable{
             txt0.setText(formato2.getRuta());
             txt1.setText(formato2.getNombre());
             //txt2.setText(formato2.getRelacion());
-            txt4.setText("" + formato2.getTotalObjetos());
-            txt3.setText(""+formato2.getTotalAtributos());
+            txt3.setText("" + formato2.getTotalObjetos());
+            txt4.setText(""+formato2.getTotalAtributos());
             //tb.setItems(formato.getAtributos());
             //txtArea0.setText(formato.getComentarios());
 

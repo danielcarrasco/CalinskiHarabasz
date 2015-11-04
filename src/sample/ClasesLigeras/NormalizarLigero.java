@@ -97,7 +97,7 @@ public class NormalizarLigero {
             normalizado[i] = vector;
         }
 
-        imprimirNormalizado(normalizado);
+        //imprimirNormalizado(normalizado);
 
 
 
