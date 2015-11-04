@@ -157,8 +157,8 @@ public class Controller extends Window implements Initializable{
         Double [][] normalizado;
         NormalizarLigero registrosN = new NormalizarLigero();
         normalizado = registrosN.Discretizar(formato2.getObjetos(), formato2.getRelacionAtributoDominio(), formato2.getTotalObjetos(), formato2.getTotalAtributos(),formato2.isIdFlag());
-        //gObjetos = normalizado;
-        //GruposObjetos = formato2.getRelacionObjetoClase();
+        gObjetos = normalizado;
+        GruposObjetos = formato2.getRelacionObjetoClase();
 
         //registrosN.imprimirNormalizado(normalizado);
 
@@ -191,9 +191,9 @@ public class Controller extends Window implements Initializable{
 
     public void crear(){
         CrearNormalizado crearN = new CrearNormalizado();
-        NormalizarLigero registrosN = new NormalizarLigero();
-        gObjetos = registrosN.Discretizar(formato2.getObjetos(), formato2.getRelacionAtributoDominio(), formato2.getTotalObjetos(), formato2.getTotalAtributos(),formato2.isIdFlag());
-        GruposObjetos = formato2.getRelacionObjetoClase();
+        //NormalizarLigero registrosN = new NormalizarLigero();
+        //gObjetos = registrosN.Discretizar(formato2.getObjetos(), formato2.getRelacionAtributoDominio(), formato2.getTotalObjetos(), formato2.getTotalAtributos(),formato2.isIdFlag());
+        //GruposObjetos = formato2.getRelacionObjetoClase();
         crearN.guardarObjetos(gObjetos);
         crearN.guardarGruposObjetos(GruposObjetos);
     }
