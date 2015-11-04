@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 public class CrearNormalizado extends Component {
     public void guardarObjetos(Double[][] objetos){
             //String ruta = "/home/v/Documentos/Objetos.txt";
-        String ruta = "bjetos.txt";
+        String ruta = "objetos.txt";
             try{
                 FileWriter arch = new FileWriter(ruta);
                 PrintWriter escribir = new PrintWriter(arch);
