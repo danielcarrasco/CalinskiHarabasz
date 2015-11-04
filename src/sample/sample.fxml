@@ -238,7 +238,8 @@
                      </font>
                   </Button>
 
-                   <Button fx:id="btn_borrar" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#borrar" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: AB4642;" text="Borrar" textAlignment="CENTER" textFill="#d8d8d8">
+                               <!--<Button fx:id="btn_borrar" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#borrar" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: AB4642;" text="Crear Normalizado" textAlignment="CENTER" textFill="#d8d8d8">-->
+                   <Button fx:id="btn_crear" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#crear" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: AB4642;" text="Crear Normalizado" textAlignment="CENTER" textFill="#d8d8d8">
                        <VBox.margin>
                            <Insets left="92.0" top="10.0" />
                        </VBox.margin>
@@ -247,7 +248,7 @@
                        </font>
                    </Button>
 
-                  <Label fx:id="lbl0" text="Resultado:" visible="false">
+                        <Label fx:id="lbl0" text="Resultado:" visible="false">
                      <VBox.margin>
                         <Insets left="18.0" top="5.0" />
                      </VBox.margin>

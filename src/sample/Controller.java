@@ -25,6 +25,7 @@ import sample.ClasesLigeras.ClusterLigero;
 import sample.ClasesLigeras.ExtractorLigero;
 import sample.ClasesLigeras.NormalizarLigero;
 import sample.algoritmoCalinskiHarabaz.CalcularAlgoritmoCH;
+import sample.Clases.CrearNormalizado;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -48,7 +49,8 @@ public class Controller extends Window implements Initializable{
     public ImageView img_escudo;
     public ChoiceBox<String> choice;
     public Button btn_aplicar;
-    public Button btn_borrar;
+    //public Button btn_borrar;
+    public Button btn_crear;
     public Tab tab_coment;
     public Tab tab_registros;
     public Tab tab_cluster;
@@ -57,6 +59,8 @@ public class Controller extends Window implements Initializable{
     public FormatFile formato;
     public ClusterLigero formato2;
     public Integer val;
+    public  Double[][] gObjetos;
+    public  String[][] GruposObjetos;
 
 
 
@@ -129,7 +133,8 @@ public class Controller extends Window implements Initializable{
 
             //Activar boton Aplicar indice
             btn_aplicar.setDisable(false);
-            btn_borrar.setDisable(false);
+            btn_crear.setDisable(false);
+            //btn_borrar.setDisable(false);
 
             //Activar choiceBox
             choice.setDisable(false);
@@ -152,6 +157,8 @@ public class Controller extends Window implements Initializable{
         Double [][] normalizado;
         NormalizarLigero registrosN = new NormalizarLigero();
         normalizado = registrosN.Discretizar(formato2.getObjetos(), formato2.getRelacionAtributoDominio(), formato2.getTotalObjetos(), formato2.getTotalAtributos(),formato2.isIdFlag());
+        gObjetos = normalizado;
+        GruposObjetos = formato2.getRelacionObjetoClase();
 
         //registrosN.imprimirNormalizado(normalizado);
 
@@ -166,7 +173,9 @@ public class Controller extends Window implements Initializable{
 
 
     }
-    public void borrar(){
+
+
+    /*public void borrar(){
         BorrarRegistro rrt = new BorrarRegistro();
         int x=tb.getSelectionModel().getFocusedIndex();
 
@@ -178,6 +187,12 @@ public class Controller extends Window implements Initializable{
 
         rrt.borrarTablaGrafica(tb);
 
+    }*/
+
+    public void crear(){
+        CrearNormalizado crearN = new CrearNormalizado();
+        crearN.guardarObjetos(gObjetos);
+        crearN.guardarGruposObjetos(GruposObjetos);
     }
 
     public void creditos(){
