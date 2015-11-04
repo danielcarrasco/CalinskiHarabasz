@@ -38,7 +38,7 @@ public class NormalizarLigero {
                         } else {
                             if (k == aux_dom.length - 1)
                                 if (!isNumeric(aux_reg[Integer.parseInt(aux_dom[0])])) {
-                                    aux_reg[0] = null;
+                                    aux_reg[Integer.parseInt(aux_dom[0])] = null;
 
                                     matrizDiscretizada[j] = aux_reg;
                                     break;
@@ -97,7 +97,7 @@ public class NormalizarLigero {
             normalizado[i] = vector;
         }
 
-        //imprimirNormalizado(normalizado);
+        imprimirNormalizado(normalizado);
 
 
 
